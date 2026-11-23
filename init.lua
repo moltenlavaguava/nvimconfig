@@ -1,3 +1,4 @@
+-- test comment to see if sync works
 print("init.lua loaded!!!!!")
 
 require("config.lazy")
