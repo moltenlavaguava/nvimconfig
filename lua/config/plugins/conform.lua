@@ -1,20 +1,28 @@
 return {
-  "stevearc/conform.nvim",
-  event = { "BufWritePre" },
-  cmd = { "ConformInfo" },
-  opts = {
-    formatters_by_ft = {
-      lua = { "stylua" },
-      rust = { "rustfmt" },
-      python = { "ruff_format" },
-      javascript = { "prettier" },
-      typescript = { "prettier" },
-      json = { "prettier" },
-      markdown = { "prettier" },
-    },
-    format_on_save = {
-      timeout_ms = 500,
-      lsp_format = "fallback",
-    },
-  },
+	"stevearc/conform.nvim",
+	event = { "BufWritePre" },
+	cmd = { "ConformInfo" },
+	opts = {
+		formatters_by_ft = {
+			lua = { "stylua" },
+			rust = { "rustfmt" },
+			python = { "ruff_format" },
+			javascript = { "prettier" },
+			typescript = { "prettier" },
+			json = { "prettier" },
+			markdown = { "prettier" },
+		},
+		formatters = {
+			stylua = {
+				prepend_args = { "--indent-type", "Spaces", "--indent-width", "2" },
+			},
+			prettier = {
+				prepend_args = { "--tab-width", "2" },
+			},
+		},
+		format_on_save = {
+			timeout_ms = 500,
+			lsp_format = "fallback",
+		},
+	},
 }
